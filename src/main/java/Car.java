@@ -40,12 +40,10 @@ public class Car {
         return brand + " " + model;
     }
 
-
     // METHODS:
     public void startCar () {
         System.out.println("*wroomm* The " + brand + " " + model + " has been started.");
     }
-
     public void accelerate(int velocityInKMH) {
         this.velocity = velocityInKMH;
         System.out.println("*wwhhhh* The " + brand + " " + model + " is driving with " + velocityInKMH + " km/h.");
