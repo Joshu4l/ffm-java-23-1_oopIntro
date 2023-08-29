@@ -6,6 +6,8 @@
 //Schritt 5: Erstellt ein zweites Objekt der Klasse 'Auto', beschleunigt es und gebt die Geschwindigkeit aus.
 //Falls ihr diese Aufgabe bereits früher abgeschlossen habt, dürft ihr die Bonusaufgabe auf der nächsten Seite bearbeiten.
 
+import java.util.ArrayList;
+
 public class Car {
 
     String brand;
@@ -15,6 +17,11 @@ public class Car {
     int initialPosition;
     int velocity;
 
+    // Statische Liste, um zu vermeiden, dass jedes Auto eine eigene Liste bekommt.
+    // Stattdessen wird die Liste auf Car-Ebene zugänglich gemacht.
+    static ArrayList<Object> allCars = new ArrayList<>();
+
+
     // CONSTRUCTOR:
     Car (String brand, String model, String color, int yearOfConstruction) {
         this.brand = brand;
@@ -23,7 +30,16 @@ public class Car {
         this.yearOfConstruction = yearOfConstruction;
         this.initialPosition = 0; // default without requiring the user to define it
         this.velocity = 0; // default without requiring the user to define it
+        allCars.add(this); //
     }
+
+    @Override
+    // DEFINITION ON HOW THE OBJECT ITSELF WILL BE DEPICTED UPON REFERENCING IT
+    public String toString()
+    {
+        return brand + " " + model;
+    }
+
 
     // METHODS:
     public void startCar () {
